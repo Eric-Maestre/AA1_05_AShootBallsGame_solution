@@ -1,10 +1,20 @@
 #pragma once
+#include "Functions.h"
 #include <iostream>
 #include<windows.h>
 
 class Ball
 {
-	// con asteriscos y a tomar por culo
+	char character = '*';
+	int color = randomNum(0, 4);
+	//0 is green
+	//1 is dark blue
+	//2 is is red
+	//3 is cyan
+	//4 is yellow
+
+	
+	
 	
 	//color
 
@@ -14,3 +24,4 @@ class Ball
 
 	//posicion 
 };
+ 
