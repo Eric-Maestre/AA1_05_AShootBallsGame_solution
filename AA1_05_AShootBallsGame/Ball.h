@@ -3,15 +3,14 @@
 #include <iostream>
 #include<windows.h>
 
+enum BallColor {GREEN, BLUE, RED, CYAN, YELLOW};
+
 class Ball
 {
+public:
 	char character = '*';
-	int color = randomNum(0, 4);
-	//0 is green
-	//1 is dark blue
-	//2 is is red
-	//3 is cyan
-	//4 is yellow
+	//recordad códigos color
+	BallColor m_color;
 
 	
 	
