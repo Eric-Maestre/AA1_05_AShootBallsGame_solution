@@ -2,14 +2,27 @@
 #include <iostream>
 #include<windows.h>
 
-enum class BallColor { GREEN, BLUE, RED, CYAN, YELLOW };
-struct Ball
+enum class BallEnumClass { GREEN, BLUE, RED, CYAN, YELLOW };
+struct BallStruct
 {
 
 	char character = '*';
 	//recordad códigos color
-	BallColor m_color;
+	BallEnumClass m_color;
 
+
+
+
+	BallEnumClass*panel;
+	int size;
+	int position;
+
+	void printBalls();
+	void inIt();
+	void insert(int position, BallEnumClass ball);
+	//int verifier(int position, Ball ball);
+	//void deleteThree(int position);
+	//void deleteThree(int position);
 
 	
 	
@@ -22,4 +35,6 @@ struct Ball
 
 	//posicion 
 };
+
+BallEnumClass guardaBolas();
  

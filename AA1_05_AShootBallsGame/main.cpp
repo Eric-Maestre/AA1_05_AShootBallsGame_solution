@@ -1,41 +1,43 @@
 #include "Ball.h"
-#include "Functions.h"
+#include "Function.h"
 
 
 int main()
 {
 	
-	int originalBalls = 5;
 	srand(time(NULL));
 	//bolas destruir
-	Ball*enemyBalls = new Ball[originalBalls];
-	for (int i = 0; i < originalBalls; i++)
+	//Ball*enemyBalls = new Ball[originalBalls];
+	
+	BallStruct panel;
+
+	bool gameOver = false;
+
+	std::cout << "Please introduce the number of balls you want to create in the pannel:\n\n";
+
+	panel.inIt();
+
+	panel.printBalls();
+
+	while (!gameOver)
 	{
-		int color = randomNum(0, 4);
-		switch (color)
+
+		std::cout << "\n\nPlease introduce your position:\n\n";
+
+		std::cin >> panel.position;
+
+		if (panel.position > panel.size)
 		{
-		case 0:
-			enemyBalls[i].m_color = BallColor::GREEN;
-			break;
-		case 1:
-			enemyBalls[i].m_color = BallColor::BLUE;
-			break;
-		case 2:
-			enemyBalls[i].m_color = BallColor::RED;
-			break;
-		case 3:
-			enemyBalls[i].m_color = BallColor::CYAN;
-			break;
-		case 4:
-			enemyBalls[i].m_color = BallColor::YELLOW;
-			break;
+			std::cout << "\n\nPlease introduce a valid position:\n\n";
 
-
+			std::cin >> panel.position;
 		}
 
+		panel.insert(panel.position, BallEnumClass::GREEN); //Cambiar cuando Erich aga su parte pq no keremos k sea siempre Greem la vola k sale del trabuco del jogador
+
+		panel.printBalls();
 
 	}
-	
 
 
 
