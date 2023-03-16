@@ -8,19 +8,19 @@ void printBalls(Ball b[], int numberBall)
 	{
 		switch(b[i].m_color)
 		{
-		case GREEN:
-			SetConsoleTextAttribute(h,2 );
+		case BallColor::GREEN:
+			SetConsoleTextAttribute(h, 2 );
 			break;
-		case BLUE:
+		case BallColor::BLUE:
 			SetConsoleTextAttribute(h,1);
 			break;
-		case RED:
+		case BallColor::RED:
 			SetConsoleTextAttribute(h, 4);
 			break;
-		case CYAN:
+		case BallColor::CYAN:
 			SetConsoleTextAttribute(h, 3);
 			break;
-		case YELLOW:
+		case BallColor::YELLOW:
 			SetConsoleTextAttribute(h, 14);
 			break;
 		}

@@ -1,16 +1,15 @@
 #pragma once
-#include "Functions.h"
 #include <iostream>
 #include<windows.h>
 
-enum BallColor {GREEN, BLUE, RED, CYAN, YELLOW};
-
-class Ball
+enum class BallColor { GREEN, BLUE, RED, CYAN, YELLOW };
+struct Ball
 {
-public:
+
 	char character = '*';
 	//recordad códigos color
 	BallColor m_color;
+
 
 	
 	
