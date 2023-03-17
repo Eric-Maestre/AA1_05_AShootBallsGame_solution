@@ -71,8 +71,13 @@ void BallStruct::printBalls() {
 		case BallEnumClass::YELLOW:
 			std::cout << 'Y';
 			break;
+		default:
+			std::cout << ' ';
+			break;
 		}
 	}
+	std::cout << "\n\n";
+
 
 }
 
@@ -103,26 +108,31 @@ BallEnumClass guardaBolas()
 
 void BallStruct::insert(int position, BallEnumClass ball)
 {
-
+	size++;
 	BallEnumClass* panelArray2 = new BallEnumClass[size];
 
-	for (int i = 0; i < size; i++)
+	for (int i = 0; i < position; i++)
 	{
 		panelArray2[i] = panel[i];
 	}
+	for (int i = position + 1; i < size; i++)
+	{
+		panelArray2[i] = panel[i - 1];
+	}
+	
 
+	
 	delete[] panel;
-
-	size++;
 
 	panel = new BallEnumClass[size];
 
 	for (int i = 0; i < size; i++)
 	{
 		panel[i] = panelArray2[i];
-		if (position == i)
-			i++;
+		
 	}
+	panel[position] = ball;
+	
 
 	delete[] panelArray2;
 	panelArray2 = nullptr;

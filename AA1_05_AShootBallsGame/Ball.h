@@ -1,6 +1,6 @@
 #pragma once
 #include <iostream>
-#include<windows.h>
+#include <windows.h>
 
 enum class BallEnumClass { GREEN, BLUE, RED, CYAN, YELLOW };
 struct BallStruct
