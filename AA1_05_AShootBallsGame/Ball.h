@@ -25,7 +25,7 @@ struct BallStruct
 	//void deleteThree(int position);
 
 	
-	
+	void verifier(int position);
 	
 	//color
 
@@ -34,7 +34,11 @@ struct BallStruct
 	//color3 = new collor
 
 	//posicion 
+	
 };
 
 BallEnumClass guardaBolas();
+
+
+
  

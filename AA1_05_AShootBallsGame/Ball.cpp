@@ -139,3 +139,26 @@ void BallStruct::insert(int position, BallEnumClass ball)
 
 
 }
+void BallStruct::verifier(int position)
+{
+
+	if (panel[position] == panel[position - 1] && panel[position] == panel[position - 2])
+	{
+		panel[position] = guardaBolas();
+		panel[position - 1] = guardaBolas();
+		panel[position - 2] = guardaBolas();
+
+	}
+	if (panel[position] == panel[position + 1] && panel[position] == panel[position + 2])
+	{
+		panel[position] = guardaBolas();
+		panel[position + 1] = guardaBolas();
+		panel[position + 2] = guardaBolas();
+	}
+	if (panel[position] == panel[position - 1] && panel[position] == panel[position + 1])
+	{
+		panel[position] = guardaBolas();
+		panel[position + 1] = guardaBolas();
+		panel[position - 1] = guardaBolas();
+	}
+}

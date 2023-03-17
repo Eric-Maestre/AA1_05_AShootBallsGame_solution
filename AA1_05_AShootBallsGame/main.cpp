@@ -1,6 +1,7 @@
 #include "Ball.h"
 #include "Function.h"
 #include "Player.h"
+#include <stdlib.h>
 
 
 int main()
@@ -30,10 +31,11 @@ int main()
 	system("cls");
 
 	panel.printBalls();
+	printPlayer(Cap);
 
 	while (!gameOver)
 	{
-		printPlayer(Cap);
+		
 
 		std::cout << "\n\nPlease introduce objective:\n\n";
 
@@ -41,17 +43,20 @@ int main()
 
 		if (panel.position > panel.size || panel.position < 0)
 		{
-			system("cls");
 			while (panel.position > panel.size || panel.position < 0)
 			{
 				std::cout << "\n\nPlease introduce a valid objective:\n\n";
 
 				std::cin >> panel.position;
-				system("cls");
+				
 			}
 		}
 
-		panel.insert(panel.position, BallEnumClass::GREEN); //Cambiar cuando Erich aga su parte pq no keremos k sea siempre Greem la vola k sale del trabuco del jogador
+
+		panel.insert(panel.position, Cap.m_balls[0]); 
+		afterShoot(Cap);
+
+		panel.verifier(panel.position);
 
 		printPlayer(Cap);
 		panel.printBalls();
