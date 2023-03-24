@@ -6,13 +6,15 @@ void Player::inIt()
 
 	
 
-	m_balls = new BallEnumClass[recharge];
+	m_balls = new BallEnumClass[recharge + 1];
 
 	for (int i = 0; i < recharge; i++)
 	{
 		m_balls[i] = guardaBolas();
-		
 	}
+	m_balls[recharge + 1] == BallEnumClass::OMEGA;
+		
+	
 
 	//Por acabar -> CUMprovar k no haya tres bowlings iguales XD
 
@@ -25,28 +27,35 @@ void printPlayer(Player p)
 		std::cout << " ";
 		for (int i = 0; i < 3; i++)
 		{
+			HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
+
 			switch (p.m_balls[i])
 			{
 			case BallEnumClass::GREEN:
-				std::cout << 'G';
+				SetConsoleTextAttribute(h, 2);
+				std::cout << '0';
 				break;
 			case BallEnumClass::BLUE:
-				std::cout << 'B';
+				SetConsoleTextAttribute(h, 1);
+				std::cout << '0';
 				break;
 			case BallEnumClass::RED:
-				std::cout << 'R';
+				SetConsoleTextAttribute(h, 4);
+				std::cout << '0';
 				break;
 			case BallEnumClass::CYAN:
-				std::cout << 'C';
+				SetConsoleTextAttribute(h, 3);
+				std::cout << '0';
 				break;
 			case BallEnumClass::YELLOW:
-				std::cout << 'Y';
+				SetConsoleTextAttribute(h, 14);
+				std::cout << '0';
 				break;
 			default:
 				std::cout << ' ';
 				break;
 			}
-		
+			SetConsoleTextAttribute(h, 15);
 	}
 	std::cout << "   Score:" << p.score << std::endl;
 

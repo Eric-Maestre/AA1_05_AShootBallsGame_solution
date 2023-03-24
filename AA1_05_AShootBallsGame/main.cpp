@@ -2,10 +2,12 @@
 #include "Function.h"
 #include "Player.h"
 #include <stdlib.h>
+#include <iostream>
 
 
 int main()
 {
+	
 	
 	srand(time(NULL));
 	//bolas destruir
@@ -14,7 +16,7 @@ int main()
 	Player Cap;
 	Cap.score = 0;
 	
-	std::cout << "Whats is your name?" << std::endl;
+	std::cout << "Whats is your name?(without spaces)" << std::endl;
 	std::cin >> Cap.name;
 
 	Cap.inIt();
@@ -50,18 +52,32 @@ int main()
 				std::cin >> panel.position;
 				
 			}
+			
 		}
 
 
+		system("cls");
+
 		panel.insert(panel.position, Cap.m_balls[0]); 
 		afterShoot(Cap);
+		
+		int moreScore = 0;
 
-		panel.verifier(panel.position);
-
+		moreScore += panel.verifier(panel.position, panel.size, moreScore);
+		Cap.score += moreScore;
+		
 		printPlayer(Cap);
 		panel.printBalls();
 
+		if (Cap.m_balls[0] == BallEnumClass::OMEGA)
+		{
+			gameOver = true;
+		}
+
 	}
+
+	std::cout << "Game Over" << std::endl;
+	std::cout << "Your Score:" << Cap.score << std::endl;
 
 
 

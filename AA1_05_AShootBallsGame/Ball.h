@@ -2,7 +2,7 @@
 #include <iostream>
 #include <windows.h>
 
-enum class BallEnumClass { GREEN, BLUE, RED, CYAN, YELLOW };
+enum class BallEnumClass { GREEN, BLUE, RED, CYAN, YELLOW, OMEGA };
 struct BallStruct
 {
 
@@ -25,7 +25,7 @@ struct BallStruct
 	//void deleteThree(int position);
 
 	
-	void verifier(int position);
+	int verifier(int position, int size, int score);
 	
 	//color
 

@@ -54,27 +54,35 @@ void BallStruct::printBalls() {
 
 	for (int i = 0; i < size; i++)
 	{
+		HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
 		switch (panel[i])
 		{
 		case BallEnumClass::GREEN:
-			std::cout << 'G';
+			SetConsoleTextAttribute(h, 2);
+			std::cout << '0';
 			break;
 		case BallEnumClass::BLUE:
-			std::cout << 'B';
+			SetConsoleTextAttribute(h, 1);
+			std::cout << '0';
 			break;
 		case BallEnumClass::RED:
-			std::cout << 'R';
+			SetConsoleTextAttribute(h, 4);
+			std::cout << '0';
 			break;
 		case BallEnumClass::CYAN:
-			std::cout << 'C';
+			SetConsoleTextAttribute(h, 3);
+			std::cout << '0';
 			break;
 		case BallEnumClass::YELLOW:
-			std::cout << 'Y';
+			SetConsoleTextAttribute(h, 14);
+			std::cout << '0';
 			break;
 		default:
 			std::cout << ' ';
 			break;
 		}
+		SetConsoleTextAttribute(h, 15);
+
 	}
 	std::cout << "\n\n";
 
@@ -102,6 +110,10 @@ BallEnumClass guardaBolas()
 		case 4:
 			return BallEnumClass::YELLOW;
 			break;
+		default:
+			return BallEnumClass::OMEGA;
+			break;
+
 		}
 
 }
@@ -139,26 +151,47 @@ void BallStruct::insert(int position, BallEnumClass ball)
 
 
 }
-void BallStruct::verifier(int position)
+int BallStruct::verifier(int position, int size, int score)
 {
 
 	if (panel[position] == panel[position - 1] && panel[position] == panel[position - 2])
 	{
-		panel[position] = guardaBolas();
-		panel[position - 1] = guardaBolas();
-		panel[position - 2] = guardaBolas();
-
+		for (int i = position - 2; i < size - 3; i++)
+		{
+			panel[i] = panel[i + 3];
+		}
+		for (int i = size - 3; i < size; i++)
+		{
+			panel[i] = guardaBolas();
+		}
+		score += 1;
 	}
 	if (panel[position] == panel[position + 1] && panel[position] == panel[position + 2])
 	{
-		panel[position] = guardaBolas();
-		panel[position + 1] = guardaBolas();
-		panel[position + 2] = guardaBolas();
+		for (int i = position; i < size - 3; i++)
+		{
+			panel[i] = panel[i + 3];
+		}
+		for (int i = size - 3; i < size; i++)
+		{
+			panel[i] = guardaBolas();
+		}
+		score += 1;
 	}
 	if (panel[position] == panel[position - 1] && panel[position] == panel[position + 1])
 	{
-		panel[position] = guardaBolas();
-		panel[position + 1] = guardaBolas();
-		panel[position - 1] = guardaBolas();
+
+		for (int i = position - 1; i < size - 3; i++)
+		{
+			panel[i] = panel[i + 2];
+		}
+		for (int i = size - 3; i < size; i++)
+		{
+			panel[i] = guardaBolas();
+		}
+		score +=1;
 	}
+	
+	return score;
+	
 }
