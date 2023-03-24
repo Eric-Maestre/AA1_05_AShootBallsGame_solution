@@ -1,11 +1,11 @@
 #include "Player.h"
 
 
-void Player::inIt() 
+
+Player::Player(int score, std::string name)
 {
-
-	
-
+	m_name = name;
+	m_score = score;	
 	m_balls = new BallEnumClass[recharge + 1];
 
 	for (int i = 0; i < recharge; i++)
@@ -13,14 +13,29 @@ void Player::inIt()
 		m_balls[i] = guardaBolas();
 	}
 	m_balls[recharge + 1] == BallEnumClass::OMEGA;
-		
-	
-
-	//Por acabar -> CUMprovar k no haya tres bowlings iguales XD
 
 }
+std::string Player::GetName()
+{
+	return m_name;
+}
+int Player::ReturnScore()
+{
+	return m_score;
+}
+void Player::SetName(const std::string name)
+{
+	m_name = name;
+}
+{
+	return m_score;
+}
+void Player::SetName(const std::string name)
+{
+	m_name = name;
+}
 
-void printPlayer(Player p) 
+void Player::printPlayer() 
 {
 	std::cout<< p.name << ":" ;
 	
@@ -29,7 +44,7 @@ void printPlayer(Player p)
 		{
 			HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
 
-			switch (p.m_balls[i])
+			switch (m_balls[i])
 			{
 			case BallEnumClass::GREEN:
 				SetConsoleTextAttribute(h, 2);
@@ -61,21 +76,21 @@ void printPlayer(Player p)
 
 }
 
-void afterShoot(Player p)
+void Player::afterShoot()
 {
 
 	BallEnumClass* panelArray2 = new BallEnumClass[recharge];
 	for (int i = 0; i < recharge-1; i++)
 	{
-		panelArray2[i] = p.m_balls[i+1];
+		panelArray2[i] = m_balls[i+1];
 	}
 
-	delete[] p.m_balls;
+	delete[] m_balls;
 
-	p.m_balls = new BallEnumClass[recharge];
+	m_balls = new BallEnumClass[recharge];
 	for (int i = 0; i < recharge - 1; i++)
 	{
-		p.m_balls[i] = panelArray2[i];
+		m_balls[i] = panelArray2[i];
 	}
 
 	delete[] panelArray2;

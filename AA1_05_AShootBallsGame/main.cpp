@@ -12,17 +12,15 @@ int main()
 	srand(time(NULL));
 	//bolas destruir
 	//Ball*enemyBalls = new Ball[originalBalls];
-
-	Player Cap;
-	Cap.score = 0;
-	
+	std::string newName;
 	std::cout << "Whats is your name?(without spaces)" << std::endl;
-	std::cin >> Cap.name;
+	std::cin >> newName;
 
-	Cap.inIt();
+	Player myCap(0, newName);
+		
 
 	
-	BallStruct panel;
+	PanelStruct panel;
 
 	bool gameOver = false;
 
@@ -33,7 +31,7 @@ int main()
 	system("cls");
 
 	panel.printBalls();
-	printPlayer(Cap);
+	myCap.printPlayer();
 
 	while (!gameOver)
 	{
@@ -58,18 +56,18 @@ int main()
 
 		system("cls");
 
-		panel.insert(panel.position, Cap.m_balls[0]); 
-		afterShoot(Cap);
+		panel.insert(panel.position, myCap.m_balls[0]); 
+		myCap.afterShoot();
 		
 		int moreScore = 0;
 
 		moreScore += panel.verifier(panel.position, panel.size, moreScore);
-		Cap.score += moreScore;
+		myCap.m_score += moreScore;
 		
-		printPlayer(Cap);
+		myCap.printPlayer();
 		panel.printBalls();
 
-		if (Cap.m_balls[0] == BallEnumClass::OMEGA)
+		if (myCap.m_balls[0] == BallEnumClass::OMEGA)
 		{
 			gameOver = true;
 		}
@@ -77,7 +75,7 @@ int main()
 	}
 
 	std::cout << "Game Over" << std::endl;
-	std::cout << "Your Score:" << Cap.score << std::endl;
+	std::cout << "Your Score:" << myCap.m_score << std::endl;
 
 
 
