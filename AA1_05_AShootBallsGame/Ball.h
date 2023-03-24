@@ -3,12 +3,10 @@
 #include <windows.h>
 
 enum class BallEnumClass { GREEN, BLUE, RED, CYAN, YELLOW, OMEGA };
-struct BallStruct
+class PanelStruct
 {
 
-	char character = '*';
-	//recordad códigos color
-	BallEnumClass m_color;
+public:
 
 
 
