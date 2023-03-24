@@ -1,11 +1,8 @@
 #include "Player.h"
 
 
-void Player::inIt() 
+void Player::Initialize()
 {
-
-	
-
 	m_balls = new BallEnumClass[recharge + 1];
 
 	for (int i = 0; i < recharge; i++)
@@ -13,16 +10,32 @@ void Player::inIt()
 		m_balls[i] = guardaBolas();
 	}
 	m_balls[recharge + 1] == BallEnumClass::OMEGA;
-		
-	
 
-	//Por acabar -> CUMprovar k no haya tres bowlings iguales XD
+}
 
+Player::Player(int score, std::string name)
+{
+	m_name = name;
+	m_score = score;	
+
+}
+std::string Player::GetName()
+{
+	return m_name;
+}
+int Player::ReturnScore()
+{
+	return m_score;
+}
+void Player::SetName(const std::string name)
+{
+	m_name = name;
 }
 
 void printPlayer(Player p) 
 {
-	std::cout<< p.name << ":" ;
+	
+	std::cout<< m_name << ":" ;
 	
 		std::cout << " ";
 		for (int i = 0; i < 3; i++)
@@ -57,7 +70,7 @@ void printPlayer(Player p)
 			}
 			SetConsoleTextAttribute(h, 15);
 	}
-	std::cout << "   Score:" << p.score << std::endl;
+	std::cout << "   Score:" << m_score << std::endl;
 
 }
 

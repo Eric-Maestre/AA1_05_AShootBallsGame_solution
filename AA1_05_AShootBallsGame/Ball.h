@@ -1,16 +1,17 @@
 #pragma once
 #include <iostream>
 #include <windows.h>
+#include <vector>
+
 
 enum class BallEnumClass { GREEN, BLUE, RED, CYAN, YELLOW, OMEGA };
-struct BallStruct
+
+
+class PanelStruct
 {
 
-	char character = '*';
-	//recordad códigos color
-	BallEnumClass m_color;
 
-
+public:
 
 
 	BallEnumClass*panel;

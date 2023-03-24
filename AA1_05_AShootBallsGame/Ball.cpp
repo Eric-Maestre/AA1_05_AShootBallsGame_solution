@@ -29,7 +29,7 @@
 	}
 }*/
 
-void BallStruct::inIt() {
+void PanelStruct::inIt() {
 
 	std::cin >> size;
 
@@ -48,7 +48,7 @@ void BallStruct::inIt() {
 
 }
 
-void BallStruct::printBalls() {
+void PanelStruct::printBalls() {
 
 	std::cout << "\n\n";
 
@@ -118,7 +118,7 @@ BallEnumClass guardaBolas()
 
 }
 
-void BallStruct::insert(int position, BallEnumClass ball)
+void PanelStruct::insert(int position, BallEnumClass ball)
 {
 	size++;
 	BallEnumClass* panelArray2 = new BallEnumClass[size];
@@ -151,7 +151,7 @@ void BallStruct::insert(int position, BallEnumClass ball)
 
 
 }
-int BallStruct::verifier(int position, int size, int score)
+int PanelStruct::verifier(int position, int size, int score)
 {
 
 	if (panel[position] == panel[position - 1] && panel[position] == panel[position - 2])

@@ -12,17 +12,20 @@ int main()
 	srand(time(NULL));
 	//bolas destruir
 	//Ball*enemyBalls = new Ball[originalBalls];
+	std::string newName;
+	std::cout << "Whats is your name?(without spaces)" << std::endl;
+	std::cin >> newName;
+	Player::SetName(newName);
 
-	Player Cap;
+	Player myCap(0, "Cap");
 	Cap.score = 0;
 	
-	std::cout << "Whats is your name?(without spaces)" << std::endl;
-	std::cin >> Cap.name;
+	
 
 	Cap.inIt();
 
 	
-	BallStruct panel;
+	PanelStruct panel;
 
 	bool gameOver = false;
 
