@@ -27,17 +27,10 @@ void Player::SetName(const std::string name)
 {
 	m_name = name;
 }
-{
-	return m_score;
-}
-void Player::SetName(const std::string name)
-{
-	m_name = name;
-}
 
 void Player::printPlayer() 
 {
-	std::cout<< p.name << ":" ;
+	std::cout<< m_name << ":" ;
 	
 		std::cout << " ";
 		for (int i = 0; i < 3; i++)
@@ -72,7 +65,7 @@ void Player::printPlayer()
 			}
 			SetConsoleTextAttribute(h, 15);
 	}
-	std::cout << "   Score:" << p.score << std::endl;
+	std::cout << "   Score:" << m_score << std::endl;
 
 }
 
